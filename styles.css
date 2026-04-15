@@ -1,0 +1,448 @@
+/* ============================================================
+   BARBIE BRANDING SYSTEM — styles.css
+   Source of truth for all canonical CSS in this project.
+   All pages must @link this file. Do not redefine classes here
+   in page-level <style> blocks or inline styles.
+   ============================================================ */
+
+/* Section 1: Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&family=DM+Sans:wght@400;500;600&display=swap');
+
+
+/* ============================================================
+   Section 2: Design Tokens
+   All hex values, font names, and shadow values live here.
+   No hardcoded values may appear outside this block or in
+   any HTML file.
+   ============================================================ */
+:root {
+  /* Colors */
+  --color-primary:       #FF0099;
+  --color-primary-dark:  #CC007A;
+  --color-bg:            #FFFFFF;
+  --color-surface:       #FFF0F7;
+  --color-surface-pink:  #FFD6EC;
+  --color-accent-yellow: #FFE600;
+  --color-text-primary:  #1A1A1A;
+  --color-text-secondary:#CC007A;
+  --color-border:        #FF0099;
+  --color-focus-ring:    rgba(255, 0, 153, 0.30);
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading:  'Montserrat', sans-serif;
+  --font-body:     'DM Sans', sans-serif;
+
+  /* Border Radius */
+  --radius-button: 50px;
+  --radius-card:   16px;
+  --radius-input:  12px;
+  --radius-chip:   999px;
+
+  /* Shadows — hard offset only, no diffuse glow on primary elements */
+  --shadow-hard:       4px 4px 0px #1A1A1A;
+  --shadow-hard-hover: 6px 6px 0px #1A1A1A;
+  --shadow-hard-pink:  4px 4px 0px #FF0099;
+}
+
+
+/* ============================================================
+   Section 3: Reset & Base
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* ============================================================
+   Section 4: Typography Classes
+   ============================================================ */
+
+/* Hero / page title — Bebas Neue renders all-caps natively */
+.display-title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 400; /* Bebas Neue has one weight; 400 is correct */
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+.heading-1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+}
+
+.heading-2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+}
+
+.heading-3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.body-copy {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+.body-copy--small {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Stamp label — editorial, uppercase, bold. The replacement for Dancing Script. */
+.label-stamp {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 0.75rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: inline-block;
+}
+
+
+/* ============================================================
+   Section 5: Buttons
+   ============================================================ */
+
+/* Shared base for all button variants */
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-button);
+  padding: 0.75rem 2.5rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Primary */
+.btn-primary {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  box-shadow: var(--shadow-hard);
+  transition: background 150ms ease-in-out,
+              transform 150ms ease-in-out,
+              box-shadow 150ms ease-in-out;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-hover);
+  color: #FFFFFF;
+}
+
+.btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #1A1A1A;
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+/* Secondary */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  transition: background 150ms ease-in-out, color 150ms ease-in-out;
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+/* Ghost / Soft */
+.btn-ghost {
+  background: var(--color-surface-pink);
+  color: var(--color-primary-dark);
+  border: none;
+  transition: background 150ms ease-in-out;
+}
+
+.btn-ghost:hover {
+  background: #FFC4E1;
+}
+
+.btn-ghost:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+
+/* ============================================================
+   Section 6: Cards & Panels
+   ============================================================ */
+
+.card {
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-hard-pink);
+}
+
+/* Yellow top accent stripe */
+.card--accented {
+  border-top: 4px solid var(--color-accent-yellow);
+}
+
+/* Glassmorphism */
+.card--glass {
+  background: rgba(255, 240, 247, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-hard-pink);
+}
+
+/* Hot pink block — inverted card */
+.card--pink-block {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-card);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-hard);
+}
+
+.card--pink-block .body-copy,
+.card--pink-block .heading-1,
+.card--pink-block .heading-2,
+.card--pink-block .heading-3 {
+  color: #FFFFFF;
+}
+
+
+/* ============================================================
+   Section 7: Form Inputs
+   ============================================================ */
+
+.input {
+  background: var(--color-bg);
+  border: 2px solid var(--color-text-primary);
+  border-radius: var(--radius-input);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  width: 100%;
+  transition: border-color 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+
+/* ============================================================
+   Section 8: Section / Layout Backgrounds
+   ============================================================ */
+
+/* Color blocking — no ambient gradients */
+.section-white {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.section-pink-block {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.section-pink-block .body-copy,
+.section-pink-block .heading-1,
+.section-pink-block .heading-2,
+.section-pink-block .heading-3,
+.section-pink-block .display-title {
+  color: #FFFFFF;
+}
+
+.section-yellow-block {
+  background: var(--color-accent-yellow);
+  color: var(--color-text-primary);
+}
+
+.section-light {
+  background: var(--color-surface-pink);
+  color: var(--color-text-primary);
+}
+
+
+/* ============================================================
+   Section 9: Dividers & Accents
+   ============================================================ */
+
+/* Full-width hot pink rule */
+.divider {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--color-primary);
+  border: none;
+  margin: 2rem 0;
+}
+
+/* Yellow accent variant */
+.divider--yellow {
+  background: var(--color-accent-yellow);
+}
+
+/* Short underline — use beneath headings */
+.divider--short {
+  width: 60px;
+  display: block;
+  height: 4px;
+  background: var(--color-primary);
+  border: none;
+  margin: 1rem 0;
+}
+
+
+/* ============================================================
+   Section 10: Layout Utilities
+   ============================================================ */
+
+/* Center a single card/element on the full viewport */
+.page-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Full-width content wrapper */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Narrow reading width */
+.container--narrow {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+.text-pink { color: var(--color-primary); }
+.text-yellow { color: var(--color-accent-yellow); }
+
+/* Section padding */
+.section-pad {
+  padding: 4rem 1.5rem;
+}
+
+.section-pad--sm {
+  padding: 2rem 1.5rem;
+}
+
+
+/* ============================================================
+   Section 11: Animation
+   ============================================================ */
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeSlideIn 350ms ease-in-out forwards;
+}

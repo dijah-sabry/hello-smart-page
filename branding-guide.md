@@ -1,6 +1,6 @@
 # Barbie Branding Guide
 
-A visual identity system for this project inspired by the iconic Barbie aesthetic — feminine, polished, slightly nostalgic but unmistakably modern.
+A visual identity system for this project inspired by the 2023 Barbie movie — bold, graphic, and unapologetically pink. This is not the vintage Dreamhouse. This is a fashion editorial.
 
 ---
 
@@ -8,23 +8,22 @@ A visual identity system for this project inspired by the iconic Barbie aestheti
 
 | Role | Name | Hex |
 |---|---|---|
-| Primary | Barbie Pink | `#E91E8C` |
-| Primary Light | Bubblegum | `#F48FB1` |
-| Soft Base | Petal Pink | `#FCE4EC` |
-| Background | Powder White | `#FFF5F8` |
-| Surface | Blush Cream | `#FFF0F3` |
-| Accent | Soft Lavender | `#E1BEE7` |
-| Accent Alt | Peach Glow | `#FFCCBC` |
-| Text Primary | Deep Rose | `#880E4F` |
-| Text Secondary | Dusty Mauve | `#AD6B7E` |
-| White | Pure White | `#FFFFFF` |
-| Shadow / Border | Rose Mist | `#F8BBD0` |
+| Primary | Barbie Hot Pink | `#FF0099` |
+| Primary Hover | Barbie Deep Pink | `#CC007A` |
+| Background | Graphic White | `#FFFFFF` |
+| Surface | Cinema White | `#FFF0F7` |
+| Soft Fill | Pale Pink | `#FFD6EC` |
+| Graphic Accent | Electric Yellow | `#FFE600` |
+| Text Primary | Near-Black | `#1A1A1A` |
+| Text Secondary | Bold Magenta | `#CC007A` |
+| Border / Rule | Hot Pink Border | `#FF0099` |
 
 ### Usage Notes
-- Use **Barbie Pink** (`#E91E8C`) sparingly for primary actions and hero elements.
-- **Powder White** and **Blush Cream** are the main page backgrounds — layer them to create depth.
-- **Petal Pink** works well for cards, panels, and input backgrounds.
-- **Soft Lavender** and **Peach Glow** are accent-only; use for decorative flourishes, borders, or highlights.
+- **Barbie Hot Pink** (`#FF0099`) is the single primary action color. Use it on buttons, borders, and key accents — not as a large background fill.
+- **Graphic White** (`#FFFFFF`) is the default page background. The design is light and clean, not gradient-washed.
+- **Electric Yellow** (`#FFE600`) is the graphic pop accent — the counterpoint to pink. Use at most one yellow element per section.
+- **Near-Black** (`#1A1A1A`) is the primary text color. No deep rose, no dusty mauve. Text is confident and legible.
+- Soft Lavender, Peach Glow, and Rose Mist are retired from this system.
 
 ---
 
@@ -34,29 +33,32 @@ A visual identity system for this project inspired by the iconic Barbie aestheti
 
 | Role | Font | Style |
 |---|---|---|
-| Display / Hero | Playfair Display | Serif, italic optional |
-| Headings | Cormorant Garamond | Elegant serif |
-| Body | Lato | Clean, readable sans-serif |
-| Accent / Labels | Dancing Script | Script / handwritten feel |
+| Display / Hero | Bebas Neue | All-caps, condensed, cinematic |
+| Headings / Buttons / UI | Montserrat | Bold sans-serif, editorial |
+| Body | DM Sans | Clean, geometric, contemporary |
 
-> Google Fonts import order: Playfair Display → Cormorant Garamond → Dancing Script → Lato
+> Google Fonts `@import` (place at top of `styles.css`):  
+> `@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&family=DM+Sans:wght@400;500;600&display=swap');`
+
+Dancing Script, Playfair Display, Cormorant Garamond, and Lato are retired from this system.
 
 ### Type Scale
 
 | Level | Size | Weight | Font | Notes |
 |---|---|---|---|---|
-| Display | 3rem–4rem | 700 | Playfair Display | Hero headlines, page titles |
-| H1 | 2rem | 700 | Playfair Display | Section headers |
-| H2 | 1.5rem | 600 | Cormorant Garamond | Sub-section headers |
-| H3 | 1.25rem | 600 | Cormorant Garamond | Card titles, callouts |
-| Body | 1rem | 400 | Lato | General text |
-| Small | 0.875rem | 400 | Lato | Captions, metadata |
-| Label / Tag | 0.75rem–0.875rem | 600 | Dancing Script | Decorative labels, badges |
+| Display | 4rem–5rem | 400 | Bebas Neue | Hero headlines — Bebas renders as bold by nature |
+| H1 | 2rem | 700 | Montserrat | Section headers |
+| H2 | 1.5rem | 700 | Montserrat | Sub-section headers |
+| H3 | 1.25rem | 700 | Montserrat | Card titles, callouts |
+| Body | 1rem | 400 | DM Sans | General text, line-height 1.6 |
+| Small | 0.875rem | 400 | DM Sans | Captions, metadata |
+| Label / Stamp | 0.75rem | 900 | Montserrat | Uppercase, letter-spacing 0.20em — editorial stamp |
 
-### Typographic Vibe
-- Favor **italic** and **light tracking** (`letter-spacing: 0.05em`) on display text for elegance.
-- Headings may use a soft `text-shadow: 1px 1px 4px rgba(233, 30, 140, 0.15)` for a dreamy glow.
-- Avoid all-caps on serif fonts — use `font-variant: small-caps` as an alternative.
+### Typographic Rules
+- Bebas Neue renders in caps natively — do not double-apply `text-transform: uppercase` to it.
+- Button labels use Montserrat 700, `text-transform: uppercase`, `letter-spacing: 0.12em`.
+- Stamp labels use Montserrat 900, `text-transform: uppercase`, `letter-spacing: 0.20em`.
+- No italic serifs. No handwritten script. No all-caps on body copy.
 
 ---
 
@@ -64,87 +66,135 @@ A visual identity system for this project inspired by the iconic Barbie aestheti
 
 ### Buttons
 
+The defining visual signature: pill shape + hard offset shadow. This is the pop-art graphic move that makes everything read as modern and confident.
+
 ```
 Primary Button
-- Background: #E91E8C (Barbie Pink)
+- Background: #FF0099
 - Text: #FFFFFF
-- Border: none
-- Border-radius: 50px (pill shape)
-- Padding: 0.75rem 2rem
-- Font: Lato 600, letter-spacing: 0.08em
-- Box-shadow: 0 4px 15px rgba(233, 30, 140, 0.35)
-- Hover: background #C2185B, shadow deepens
+- Border-radius: 50px
+- Padding: 0.75rem 2.5rem
+- Font: Montserrat 700, uppercase, letter-spacing 0.12em
+- Shadow: 4px 4px 0px #1A1A1A  ← hard offset, not diffuse glow
+- Hover: background #CC007A, transform translate(-2px, -2px), shadow 6px 6px 0px #1A1A1A
+- Active: transform translate(2px, 2px), shadow 2px 2px 0px #1A1A1A
+- Transition: 150ms ease-in-out
 
 Secondary Button
 - Background: transparent
-- Text: #E91E8C
-- Border: 2px solid #E91E8C
+- Text: #FF0099
+- Border: 2px solid #FF0099
 - Border-radius: 50px
-- Hover: background #FCE4EC
+- Hover: background #FF0099, text #FFFFFF
 
 Ghost / Soft Button
-- Background: #FFF0F3
-- Text: #AD6B7E
-- Border: 1px solid #F8BBD0
+- Background: #FFD6EC
+- Text: #CC007A
+- Border: none
 - Border-radius: 50px
+- Hover: background #FFC4E1
 ```
 
 ### Cards & Panels
 
-- Background: `#FFFFFF` or `#FFF0F3`
-- Border: `1px solid #F8BBD0`
-- Border-radius: `16px`
-- Box-shadow: `0 2px 20px rgba(233, 30, 140, 0.08)`
-- Optional top accent stripe: `3px solid #E91E8C`
+```
+Standard Card
+- Background: #FFFFFF
+- Border: 2px solid #FF0099
+- Border-radius: 16px
+- Padding: 1.5rem 2rem
+- Shadow: 4px 4px 0px #FF0099  ← hard pink offset shadow
+
+Accented Card
+- Same as above + border-top: 4px solid #FFE600
+
+Glassmorphism Card
+- Background: rgba(255, 240, 247, 0.85)
+- backdrop-filter: blur(12px)
+- Border: 2px solid #FF0099
+
+Pink Block Card
+- Background: #FF0099
+- Text: #FFFFFF
+- Border: none
+```
 
 ### Inputs & Forms
 
-- Background: `#FFF5F8`
-- Border: `1px solid #F8BBD0`
-- Border-radius: `12px`
-- Focus border: `2px solid #E91E8C`
-- Focus box-shadow: `0 0 0 3px rgba(233, 30, 140, 0.15)`
-- Placeholder text color: `#AD6B7E`
+```
+- Background: #FFFFFF
+- Border: 2px solid #1A1A1A
+- Border-radius: 12px
+- Focus border: #FF0099
+- Focus box-shadow: 0 0 0 3px rgba(255, 0, 153, 0.30)
+- Placeholder text: #CC007A
+```
 
-### Decorative / Textural Elements
+### Section Backgrounds
 
-| Element | Implementation |
+Color blocking replaces ambient gradients. Sections snap between solid colors — this is the movie's graphic design language.
+
+| Class | Background | Text |
+|---|---|---|
+| `.section-white` | `#FFFFFF` | `#1A1A1A` |
+| `.section-pink-block` | `#FF0099` | `#FFFFFF` |
+| `.section-yellow-block` | `#FFE600` | `#1A1A1A` |
+| `.section-light` | `#FFD6EC` | `#1A1A1A` |
+
+### Dividers
+
+Flat solid rules. No gradients.
+
+| Class | Color | Notes |
+|---|---|---|
+| `.divider` | `#FF0099` | Full-width, 4px |
+| `.divider--yellow` | `#FFE600` | Full-width, 4px |
+| `.divider--short` | `#FF0099` | 60px wide — use under headings |
+
+### Shadows
+
+Hard offset shadows only. Diffuse glow shadows (blurred box-shadows) are retired.
+
+| Use | Value |
 |---|---|
-| Lace border | CSS `border-image` or SVG lace pattern as a repeating background-image along edges |
-| Ribbon accent | Horizontal `<div>` with `background: linear-gradient(135deg, #E91E8C, #F48FB1)`, `height: 4px`, optional scallop SVG ends |
-| Confetti / sparkle | Small `★` or `✦` characters in `#F48FB1` or `#E1BEE7`, scattered via `::before`/`::after` pseudo-elements |
-| Soft gradient bg | `background: linear-gradient(160deg, #FFF5F8 0%, #FCE4EC 60%, #E1BEE7 100%)` |
-| Polka dots | CSS radial-gradient pattern: `radial-gradient(circle, #F8BBD0 1px, transparent 1px)` at `20px 20px` |
-| Glassmorphism card | `background: rgba(255,255,255,0.7)`, `backdrop-filter: blur(12px)`, pink border |
+| Button (default) | `4px 4px 0px #1A1A1A` |
+| Button (hover) | `6px 6px 0px #1A1A1A` |
+| Card | `4px 4px 0px #FF0099` |
 
 ### Icons & Imagery
 
-- Prefer **outline-style icons** (e.g. Heroicons, Phosphor Icons) in `#E91E8C` or `#F48FB1`.
-- Imagery should feel bright, warm, high-key lit — avoid dark or desaturated photos.
-- Illustrations may use flat or pastel styles with strong pink and cream palettes.
+- Prefer outline-style icons in `#FF0099` or `#1A1A1A`.
+- Imagery should be high-contrast, vivid, and bright — movie poster energy.
+- Avoid muted, desaturated, or vintage-filtered photography.
 
 ---
 
 ## Overall Vibe
 
-**Feminine · Polished · Slightly Nostalgic · Confidently Modern**
+**Bold · Graphic · Unapologetically Pink · Editorial**
 
-The aesthetic draws from the original Barbie world — glamour, optimism, and a touch of playful fantasy — filtered through a clean, contemporary design lens. Think boutique stationery brand meets 1960s dreamhouse, but built on a modern design system.
+The aesthetic draws from the 2023 Barbie movie — a maximalist pop-art vision filtered through contemporary fashion editorial design. Think Architectural Digest meets Vogue Brazil shot on a hot pink soundstage.
 
 ### Principles
 
-1. **Everything is a little more beautiful here.** Rounded corners, soft shadows, gentle gradients — nothing should feel harsh or stark.
-2. **Pink is not loud, it is luxurious.** Use the signature pink with intention; let white and cream do the heavy lifting so pink always feels special.
-3. **Nostalgia as an accent, not a costume.** Script fonts, ribbon details, and lace textures are sprinkled in — they evoke the era without making the UI feel dated.
-4. **Confidence over cuteness.** The layout should be structured and clear. Barbie is aspirational, not infantile — spacing and hierarchy should feel elevated.
-5. **Delight in the details.** Hover states, transitions (`ease-in-out, 200ms`), and micro-animations should feel smooth and satisfying, like opening a gift box.
+1. **Confidence is the aesthetic.** Hard shadows, saturated color, uppercase type — every element knows exactly what it is.
+2. **Pink is not background, it is punctuation.** White surfaces let hot pink land with maximum impact. Pink as wallpaper is a failure mode.
+3. **Yellow is the twist.** One electric yellow element per section creates graphic tension and stops the eye. More than one is chaos.
+4. **No nostalgia.** Script fonts, lace, ribbon textures, and ambient pastel gradients belong to a different era. Every element should feel like it was designed this decade.
+5. **The grid is your friend.** Clean spacing, strong alignment, and generous white space make the bold color choices feel intentional rather than loud.
 
 ### Tone (for copy & labels)
 
-- Warm, direct, and optimistic.
-- Capitalize proper nouns playfully: "Your Collection", "Hello, Gorgeous", "Make It Yours".
-- Avoid overly technical or cold language anywhere visible to the user.
+- Direct, confident, slightly playful — fashion magazine voice.
+- Stamps and labels in uppercase: "WELCOME", "SMART PAGE", "NEW ARRIVAL".
+- Body copy is warm but concise. No overly ornate language.
 
 ---
 
-*This guide is the source of truth for all visual decisions. When in doubt, ask: "Does this feel like stepping into Barbie's world?" If yes, ship it.*
+## Shared Stylesheet
+
+All canonical CSS lives in `styles.css`. Every page in this project links to it. No page may redefine a pattern that already exists there.
+
+---
+
+*This guide is the source of truth for all visual decisions. When in doubt, ask: "Does this feel like a frame from the 2023 Barbie movie?" If yes, ship it.*
