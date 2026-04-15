@@ -41,8 +41,8 @@ Rules:
 
 > **Every HTML page in this project must display a photo of the site owner somewhere on the page.**
 
-- **File path:** `Local Branding Assests/cute picture of me.jpeg`
-- **Path is relative** to the project root — use `src="Local Branding Assests/cute picture of me.jpeg"` from any page in the root folder.
+- **Image src:** `https://lh3.googleusercontent.com/d/1bO-O01JX1Aa1gf9grucISEHmKa3mxyyI`
+- This is the embeddable form of the Google Drive share link. Always use this URL — never assume a local file path.
 - The photo may be placed anywhere that makes visual sense for the page layout (hero, corner avatar, footer portrait, etc.).
 - It must be visible on initial load — not hidden behind a click or scroll barrier.
 - Always include a descriptive `alt` attribute (e.g. `alt="Khadeejah"`).
@@ -343,7 +343,7 @@ Run this checklist **before committing any change to a UI file**. Every item mus
 - [ ] Read this file (`branding-guide-agent.md`) if you have not done so in this session.
 - [ ] Confirm the HTML file has `<link rel="stylesheet" href="styles.css">` as the **first** stylesheet in `<head>`.
 - [ ] Confirm no class from `styles.css` is duplicated in a `<style>` block in this file.
-- [ ] Confirm the page includes `<img src="Local Branding Assests/cute picture of me.jpeg" alt="Khadeejah">` and that it is visible on initial load.
+- [ ] Confirm the page includes `<img src="https://lh3.googleusercontent.com/d/1bO-O01JX1Aa1gf9grucISEHmKa3mxyyI" alt="Khadeejah">` and that it is visible on initial load.
 - [ ] Identify which UI pattern(s) in Section 5 apply to what you are building. If none exist, add the pattern to `styles.css` first.
 
 ### Colors
