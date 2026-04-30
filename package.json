@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/aWeirdUnicorn/learning-code#readme",
   "dependencies": {
-    "@libsql/client": "^0.17.2",
-    "better-sqlite3": "^12.9.0",
+    "@supabase/supabase-js": "^2.39.0",
     "express": "^5.2.1"
   }
 }
